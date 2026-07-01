@@ -70,10 +70,3 @@ Three tables in SQL Server managed by Entity Framework Core:
 - Dependency Injection:Microsoft.Extensions.DependencyInjection
 
 ---
-
-
-## 👩‍💻 Developer
-
-Built by **Tilu** as part of an internship training evaluation.
-
-- Concepts covered: OOP, SOLID, MVVM, Entity Framework, LINQ, Dependency Injection, Error Handling, Logging
