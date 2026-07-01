@@ -3,10 +3,6 @@ using System.Runtime.CompilerServices;
 
 namespace LibraryManagementSystem.ViewModels;
 
-/// <summary>
-/// Base class for all ViewModels.
-/// Implements INotifyPropertyChanged so WPF bindings update automatically.
-/// </summary>
 public abstract class ViewModelBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -22,7 +18,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
         return true;
     }
 
-    // Tracks busy state for async operations
+  
     private bool _isBusy;
     public bool IsBusy
     {

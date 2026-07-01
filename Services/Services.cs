@@ -4,7 +4,6 @@ using Serilog;
 
 namespace LibraryManagementSystem.Services;
 
-// ── MemberService ─────────────────────────────────────────────────────────────
 
 public class MemberService : IMemberService
 {
@@ -34,7 +33,7 @@ public class MemberService : IMemberService
         var member = await _repo.GetByIdAsync(id)
             ?? throw new KeyNotFoundException($"Member {id} not found.");
 
-        // Business rule: cannot delete member with active borrows
+        //cannot delete member with active borrows
         if (member.Transactions.Any(t => t.ReturnDate == null))
             throw new InvalidOperationException("Cannot delete a member who still has borrowed books.");
 
@@ -42,7 +41,6 @@ public class MemberService : IMemberService
     }
 }
 
-// ── TransactionService ────────────────────────────────────────────────────────
 
 public class TransactionService : ITransactionService
 {

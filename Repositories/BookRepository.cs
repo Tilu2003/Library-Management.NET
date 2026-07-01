@@ -5,10 +5,8 @@ using Serilog;
 
 namespace LibraryManagementSystem.Repositories;
 
-/// <summary>
-/// Concrete implementation of IBookRepository.
-/// Uses LINQ queries and EF Core for data access.
-/// </summary>
+///  LINQ queries and EF Core for data access.
+
 public class BookRepository : IBookRepository
 {
     private readonly LibraryDbContext _context;
@@ -64,7 +62,7 @@ public class BookRepository : IBookRepository
 
         var term = searchTerm.ToLower();
 
-        // LINQ query — demonstrates LINQ usage as required
+        // LINQ query 
         return await _context.Books
             .Where(b => b.Title.ToLower().Contains(term)
                      || b.Author.ToLower().Contains(term)

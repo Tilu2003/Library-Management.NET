@@ -4,10 +4,7 @@ using Serilog;
 
 namespace LibraryManagementSystem.Services;
 
-/// <summary>
-/// Business logic for books.
-/// Single Responsibility: only book-related logic here (SOLID-S).
-/// </summary>
+
 public class BookService : IBookService
 {
     private readonly IBookRepository _repo;
@@ -21,7 +18,7 @@ public class BookService : IBookService
 
     public async Task<Book> AddBookAsync(Book book)
     {
-        // Business rule: ISBN must be unique
+        // unique  ISBN 
         var existing = await _repo.GetByIsbnAsync(book.ISBN);
         if (existing != null)
             throw new InvalidOperationException($"A book with ISBN '{book.ISBN}' already exists.");
@@ -34,7 +31,7 @@ public class BookService : IBookService
         if (!await _repo.ExistsAsync(book.Id))
             throw new KeyNotFoundException($"Book {book.Id} not found.");
 
-        // Check ISBN uniqueness excluding self
+        // Check ISBN uniqueness 
         var existing = await _repo.GetByIsbnAsync(book.ISBN);
         if (existing != null && existing.Id != book.Id)
             throw new InvalidOperationException($"ISBN '{book.ISBN}' is already assigned to another book.");

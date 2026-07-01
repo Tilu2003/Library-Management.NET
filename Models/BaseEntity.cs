@@ -1,9 +1,7 @@
 namespace LibraryManagementSystem.Models;
 
-/// <summary>
-/// Abstract base class applying OOP Abstraction + Inheritance.
-/// All entities share a common ID and audit fields.
-/// </summary>
+
+/// Abstract base class 
 public abstract class BaseEntity
 {
     public int Id { get; protected set; }

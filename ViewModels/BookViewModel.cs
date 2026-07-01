@@ -7,18 +7,14 @@ using LibraryManagementSystem.Services;
 
 namespace LibraryManagementSystem.ViewModels;
 
-/// <summary>
-/// ViewModel for Book management.
-/// Follows MVVM: View binds to properties/commands here; no code-behind logic.
-/// </summary>
 public class BookViewModel : ViewModelBase
 {
     private readonly IBookService _bookService;
 
-    // ── Observable collections (auto-update the UI when changed) ──────────────
+    
     public ObservableCollection<Book> Books { get; } = new();
 
-    // ── Selected book ─────────────────────────────────────────────────────────
+    
     private Book? _selectedBook;
     public Book? SelectedBook
     {
@@ -26,12 +22,12 @@ public class BookViewModel : ViewModelBase
         set
         {
             SetProperty(ref _selectedBook, value);
-            // Populate edit form
+            
             if (value != null) PopulateForm(value);
         }
     }
 
-    // ── Form Fields ───────────────────────────────────────────────────────────
+    
     private string _formTitle   = string.Empty;
     private string _formAuthor  = string.Empty;
     private string _formIsbn    = string.Empty;
@@ -44,7 +40,7 @@ public class BookViewModel : ViewModelBase
     public string FormGenre    { get => _formGenre;    set => SetProperty(ref _formGenre, value); }
     public bool   FormIsAvailable { get => _formIsAvailable; set => SetProperty(ref _formIsAvailable, value); }
 
-    // ── Search ────────────────────────────────────────────────────────────────
+    
     private string _searchTerm = string.Empty;
     public string SearchTerm
     {
@@ -56,7 +52,7 @@ public class BookViewModel : ViewModelBase
         }
     }
 
-    // ── Commands ──────────────────────────────────────────────────────────────
+    
     public ICommand LoadCommand   { get; }
     public ICommand AddCommand    { get; }
     public ICommand UpdateCommand { get; }

@@ -1,9 +1,5 @@
 namespace LibraryManagementSystem.Repositories;
 
-/// <summary>
-/// Generic repository interface — Polymorphism via interface.
-/// All repositories share this contract; swap implementations freely.
-/// </summary>
 public interface IRepository<T> where T : class
 {
     Task<IEnumerable<T>> GetAllAsync();

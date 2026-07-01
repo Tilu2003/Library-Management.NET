@@ -2,9 +2,8 @@ using System.Windows.Input;
 
 namespace LibraryManagementSystem.Helpers;
 
-/// <summary>
-/// ICommand implementation for MVVM data binding.
-/// </summary>
+/// ICommand implementation 
+
 public class RelayCommand : ICommand
 {
     private readonly Action<object?> _execute;
@@ -30,9 +29,9 @@ public class RelayCommand : ICommand
     public void RaiseCanExecuteChanged() => CommandManager.InvalidateRequerySuggested();
 }
 
-/// <summary>
-/// Async RelayCommand — runs async operations without blocking the UI thread.
-/// </summary>
+
+/// runs async operations without blocking the UI thread.
+
 public class AsyncRelayCommand : ICommand
 {
     private readonly Func<object?, Task> _execute;

@@ -3,13 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSystem.Models;
 
-/// <summary>
-/// Book entity — inherits BaseEntity (OOP Inheritance).
-/// Encapsulation: private backing fields with public properties.
-/// </summary>
+
+/// Book entity — inherits BaseEntity 
 public class Book : BaseEntity
 {
-    // ── Encapsulation: private fields, controlled via properties ──────────────
+    // ── Encapsulation: private fields, controlled via properties 
     private string _title = string.Empty;
     private string _author = string.Empty;
     private string _isbn = string.Empty;
@@ -44,7 +42,7 @@ public class Book : BaseEntity
 
     public bool IsAvailable { get; set; } = true;
 
-    // Navigation property (One-to-Many: a book can have many transactions)
+    // (One-to-Many: a book can have many transactions)
     public virtual ICollection<BorrowTransaction> Transactions { get; set; } = new List<BorrowTransaction>();
 
     // Polymorphism: override abstract method from BaseEntity

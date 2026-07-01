@@ -2,7 +2,6 @@ using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem.Services;
 
-// ── Interfaces (Polymorphism via Interface) ────────────────────────────────────
 
 public interface IBookService
 {

@@ -3,10 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryManagementSystem.Models;
 
-/// <summary>
-/// Member entity — inherits BaseEntity (OOP Inheritance).
-/// Demonstrates Encapsulation with private fields and validation.
-/// </summary>
+/// Member entity — inherits BaseEntity 
 public class Member : BaseEntity
 {
     private string _name = string.Empty;
@@ -32,9 +29,9 @@ public class Member : BaseEntity
 
     public DateTime MembershipDate { get; set; } = DateTime.Today;
 
-    // Navigation: One member → Many transactions
+    //  One member → Many transactions
     public virtual ICollection<BorrowTransaction> Transactions { get; set; } = new List<BorrowTransaction>();
 
-    // Polymorphism: override from BaseEntity
+  
     public override string GetDisplayName() => $"{Name} ({ContactInfo})";
 }
